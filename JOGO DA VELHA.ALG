@@ -1,4 +1,6 @@
 Algoritmo "Jogo da Velha"
+// Disciplina   : [Crash Course - Lógica de Programação]
+// Professor   : Eri
 // Venturus
 
 Var
