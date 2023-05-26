@@ -17,6 +17,8 @@ i, j: inteiro
 // É encerrado (fim = TRUE) quando alguém ganhar
 // ou dar velha (atingir número máx. de jogadas que é 9)
 fim: logico
+// Variável para escolher jogar novamente após termino do jogo
+opcao: inteiro
 
 Inicio
 // ---------------- Inicialização de Variáveis ----------------
@@ -38,6 +40,7 @@ inicio
        escreval("")
 
 fimprocedimento
+
 
 // Procedimento para verificar se alguém ganhou
 procedimento verificaFim
@@ -88,14 +91,23 @@ inicio
 
 fimprocedimento
 
+
+// Procedimento para zerar o jogo, colocando " " em toda a matriz
+procedimento zeraJogo
+inicio
+
+   para i de 1 ate 3 faca
+      para j de 1 ate 3 faca
+           jogo[i,j] <- " "
+      fimpara
+   fimpara
+
+fimprocedimento
+
 // ---------------- Inicialização do Jogo ----------------
 
 // Inicia matriz do jogo com espaços (" ")
-para i de 1 ate 3 faca
-   para j de 1 ate 3 faca
-        jogo[i,j] <- " "
-   fimpara
-fimpara
+zeraJogo
 
 // Inicia o jogo, repetindo as jogadas até alguém ganhar
 repita
@@ -164,6 +176,23 @@ repita
       // Verificação se alguém ganhou
       verificaFim
    fimse
+
+// SE que irá dar a opção de jogar novamente após termino do jogo
+se fim = VERDADEIRO entao
+   escreval("")
+   escreval("Jogar novamente?")
+   escreval("[1] - SIM")
+   escreval("[2] - NÃO")
+   leia(opcao)
+   // Caso escolha jogar novamente é preciso resetar as variáveis
+   // de controle para fim do jogo (qtdJogadas é 0 e fim é FALSO)
+   // O jogo é zerado para recomeçar (todos as jogadas viram " ")
+   se opcao = 1 entao
+      qtdJogadas <- 0
+      fim <- FALSO
+      zeraJogo
+   fimse
+fimse
 
 ate (fim)
 
