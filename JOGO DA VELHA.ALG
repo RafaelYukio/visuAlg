@@ -50,6 +50,7 @@ inicio
    para i de 1 ate 3 faca
         // No primeiro SE, é verificado uma linha a cada loop
         se ((jogo[i,1] = jogo[i,2]) e (jogo[i,1] = jogo[i,3])) entao
+           // Esse SE é para verificar se os CARACTERE repetidos não são apenas espaços " "
            se (jogo[i,1] <> " ") entao
               escreval("Jogador: '", jogo[i,1], "' ganhou, completando a linha: ", i)
               fim <- VERDADEIRO
@@ -81,7 +82,7 @@ inicio
    
    // Caso o número de jogadas chegue a 9 (máximo possível para jogo da velha)
    // o jogo acaba em velha
-   // Obs.: O jogo da velha sempre vai acabar com que iniciou o jogo
+   // Obs.: O jogo da velha sempre vai acabar com quem jogou primeiro
    // caso acabe em velha
    se (qtdJogadas = 9) e (fim <> VERDADEIRO) entao
       escreval("")
@@ -184,6 +185,7 @@ se fim = VERDADEIRO entao
    escreval("[1] - SIM")
    escreval("[2] - NÃO")
    leia(opcao)
+   escreval("")
    // Caso escolha jogar novamente é preciso resetar as variáveis
    // de controle para fim do jogo (qtdJogadas é 0 e fim é FALSO)
    // O jogo é zerado para recomeçar (todos as jogadas viram " ")
